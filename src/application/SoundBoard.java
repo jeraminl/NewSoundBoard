@@ -1,13 +1,23 @@
 package application;
 
+
+import java.io.File;
+import java.util.Scanner;
+
 import javafx.scene.media.MediaPlayer;
+import javafx.stage.FileChooser;
 
 public class SoundBoard {
-	public static void main(String[] args) throws Exception{
-		SoundEntity test = new SoundEntity("src/gunshot.wav");
-		MediaPlayer mediaPlayer = new MediaPlayer(test.clip);
+	SoundEntity[] soundList;
+	int soundAmount;
+	
+	public SoundBoard() {
+		Scanner in = new Scanner(System.in);
+		System.out.print("How Many Sounds are you using?");
+		soundAmount = in.nextInt();
 		
-		mediaPlayer.play();
 		
+		in.close();
 	}
+
 }
