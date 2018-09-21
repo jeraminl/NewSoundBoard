@@ -13,11 +13,12 @@ public class SoundBoard {
 	
 	public SoundBoard() {
 		Scanner in = new Scanner(System.in);
-		System.out.print("How Many Sounds are you using?");
-		soundAmount = in.nextInt();
-		
-		
+		soundList = new SoundEntity[10];
 		in.close();
+	}
+	
+	public void importSound() {
+		
 	}
 
 }

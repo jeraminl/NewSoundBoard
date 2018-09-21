@@ -14,9 +14,11 @@ import javafx.scene.media.MediaPlayer;
 
 
 public class SoundBoardGui extends Application {
+	
+	SoundBoard sb = new SoundBoard();
 	@Override
 	public void start(Stage primaryStage) {
-		//SoundBoard sb = new SoundBoard();
+
 		try {
 			//BorderPane root = new BorderPane();
 
@@ -24,21 +26,22 @@ public class SoundBoardGui extends Application {
 			
 			GridPane gp = new GridPane();
 			
-			Button button = new Button("play");
+			SoundBoardButton sbb = new SoundBoardButton();
 			
-			gp.add(button, 0, 0,1,1);
+			
+			gp.add(sbb, 0, 0,1,1);
 			//Scene buttonScene = new Scene(button, 200, 100);
 			
-			button.setOnMouseClicked(new EventHandler<MouseEvent>() {
+			sbb.setOnMouseClicked(new EventHandler<MouseEvent>() {
 				public void handle(MouseEvent event) {
 					MouseButton click = event.getButton();
 					SoundEntity test = new SoundEntity("src/gunshot.wav");
 					MediaPlayer mediaPlayer = new MediaPlayer(test.clip);
 					
 					mediaPlayer.play();
+					System.out.print("btnID Pressed: " + sbb.btnID);
 				}
 			});
-			
 			
 			Scene scene = new Scene(gp,400,400);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
@@ -52,6 +55,7 @@ public class SoundBoardGui extends Application {
 		}
 	}
 	
+
 	public static void main(String[] args) {
  
 		launch(args);
